@@ -58,3 +58,13 @@ G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Raz
 G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\CSOEmployees\Details.g.cshtml.cs
 G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\CSOEmployees\Edit.g.cshtml.cs
 G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\CSOEmployees\Index.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\SalesEmployees\Create.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\SalesEmployees\Delete.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\SalesEmployees\Details.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\SalesEmployees\Edit.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\SalesEmployees\Index.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\ClientEmployees\Create.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\ClientEmployees\Delete.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\ClientEmployees\Details.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\ClientEmployees\Edit.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\ClientEmployees\Index.g.cshtml.cs

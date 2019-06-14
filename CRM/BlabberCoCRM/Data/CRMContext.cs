@@ -27,5 +27,9 @@ namespace BlabberCoCRM.Models
         public DbSet<BlabberCoCRM.Models.CSOEmployee> CSOEmployee { get; set; }
 
         public DbSet<BlabberCoCRM.Models.SalesEmployee> SalesEmployee { get; set; }
+
+        public DbSet<BlabberCoCRM.Models.ClientEmployee> ClientEmployee { get; set; }
+
+        public DbSet<BlabberCoCRM.Models.Order> Order { get; set; }
     }
 }
