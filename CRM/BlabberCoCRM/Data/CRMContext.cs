@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using BlabberCoCRM.Models;
 
 namespace BlabberCoCRM.Models
 {
@@ -14,5 +15,7 @@ namespace BlabberCoCRM.Models
         }
 
         public DbSet<BlabberCoCRM.Models.Address> Address { get; set; }
+
+        public DbSet<BlabberCoCRM.Models.Client> Client { get; set; }
     }
 }
