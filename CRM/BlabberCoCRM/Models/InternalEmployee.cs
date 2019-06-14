@@ -7,5 +7,6 @@ namespace BlabberCoCRM.Models
 {
     public class InternalEmployee
     {
+        public int Id { get; set; }
     }
 }
