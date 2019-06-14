@@ -23,5 +23,7 @@ namespace BlabberCoCRM.Models
         public DbSet<BlabberCoCRM.Models.Communication> Communication { get; set; }
 
         public DbSet<BlabberCoCRM.Models.Conversation> Conversation { get; set; }
+
+        public DbSet<BlabberCoCRM.Models.CSOEmployee> CSOEmployee { get; set; }
     }
 }
