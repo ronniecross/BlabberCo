@@ -73,3 +73,8 @@ G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Raz
 G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\Orders\Details.g.cshtml.cs
 G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\Orders\Edit.g.cshtml.cs
 G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\Orders\Index.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\OrderItems\Create.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\OrderItems\Delete.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\OrderItems\Details.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\OrderItems\Edit.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\OrderItems\Index.g.cshtml.cs

@@ -33,5 +33,7 @@ namespace BlabberCoCRM.Models
         public DbSet<BlabberCoCRM.Models.Order> Order { get; set; }
 
         public DbSet<BlabberCoCRM.Models.OrderItem> OrderItem { get; set; }
+
+        public DbSet<BlabberCoCRM.Models.ServiceProduct> ServiceProduct { get; set; }
     }
 }

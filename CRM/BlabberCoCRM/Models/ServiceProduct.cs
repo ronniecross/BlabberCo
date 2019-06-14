@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 
 namespace BlabberCoCRM.Models
 {
-    public class ServiceEmployee
+    public class ServiceProduct
     {
+        public int Id { get; set; }
+        public int DurationDays { get; set; }
     }
 }
