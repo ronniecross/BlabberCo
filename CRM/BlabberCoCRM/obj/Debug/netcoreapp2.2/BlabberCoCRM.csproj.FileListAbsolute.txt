@@ -53,3 +53,8 @@ G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Raz
 G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\Conversations\Details.g.cshtml.cs
 G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\Conversations\Edit.g.cshtml.cs
 G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\Conversations\Index.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\CSOEmployees\Create.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\CSOEmployees\Delete.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\CSOEmployees\Details.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\CSOEmployees\Edit.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\CSOEmployees\Index.g.cshtml.cs
