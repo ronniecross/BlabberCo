@@ -33,7 +33,7 @@ namespace BlabberCoCRM.Controllers
             }
 
             var serviceProduct = await _context.ServiceProduct
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.ID == id);
             if (serviceProduct == null)
             {
                 return NotFound();
@@ -53,7 +53,7 @@ namespace BlabberCoCRM.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Summary,DurationDays")] ServiceProduct serviceProduct)
+        public async Task<IActionResult> Create([Bind("ServiceProductId,Summary,DurationDays,ID,Price")] ServiceProduct serviceProduct)
         {
             if (ModelState.IsValid)
             {
@@ -85,9 +85,9 @@ namespace BlabberCoCRM.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Summary,DurationDays")] ServiceProduct serviceProduct)
+        public async Task<IActionResult> Edit(int id, [Bind("ServiceProductId,Summary,DurationDays,ID,Price")] ServiceProduct serviceProduct)
         {
-            if (id != serviceProduct.Id)
+            if (id != serviceProduct.ID)
             {
                 return NotFound();
             }
@@ -101,7 +101,7 @@ namespace BlabberCoCRM.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ServiceProductExists(serviceProduct.Id))
+                    if (!ServiceProductExists(serviceProduct.ID))
                     {
                         return NotFound();
                     }
@@ -124,7 +124,7 @@ namespace BlabberCoCRM.Controllers
             }
 
             var serviceProduct = await _context.ServiceProduct
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.ID == id);
             if (serviceProduct == null)
             {
                 return NotFound();
@@ -146,7 +146,7 @@ namespace BlabberCoCRM.Controllers
 
         private bool ServiceProductExists(int id)
         {
-            return _context.ServiceProduct.Any(e => e.Id == id);
+            return _context.ServiceProduct.Any(e => e.ID == id);
         }
     }
 }

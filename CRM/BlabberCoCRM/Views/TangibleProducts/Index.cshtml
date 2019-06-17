@@ -13,6 +13,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.TangibleProductId)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Manufacture)
             </th>
             <th>
@@ -21,12 +24,18 @@
             <th>
                 @Html.DisplayNameFor(model => model.EndOfLife)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TangibleProductId)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Manufacture)
             </td>
@@ -37,9 +46,12 @@
                 @Html.DisplayFor(modelItem => item.EndOfLife)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
             </td>
         </tr>
 }

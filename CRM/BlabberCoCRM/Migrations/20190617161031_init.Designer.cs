@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlabberCoCRM.Migrations
 {
     [DbContext(typeof(CRMContext))]
-    [Migration("20190617100244_init")]
+    [Migration("20190617161031_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -71,9 +71,9 @@ namespace BlabberCoCRM.Migrations
 
                     b.Property<string>("CostCenterCode");
 
-                    b.Property<DateTime>("SetupDate");
+                    b.Property<string>("Name");
 
-                    b.Property<string>("nNme");
+                    b.Property<DateTime>("SetupDate");
 
                     b.HasKey("ID");
 
@@ -288,39 +288,16 @@ namespace BlabberCoCRM.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired();
+
                     b.Property<decimal>("Price");
 
                     b.HasKey("ID");
 
                     b.ToTable("Product");
-                });
 
-            modelBuilder.Entity("BlabberCoCRM.Models.ServiceProduct", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("DurationDays");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ServiceProduct");
-                });
-
-            modelBuilder.Entity("BlabberCoCRM.Models.TangibleProduct", b =>
-                {
-                    b.Property<int>("Id");
-
-                    b.Property<DateTime>("EndOfLife");
-
-                    b.Property<string>("Manufacture");
-
-                    b.Property<string>("Model");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TangibleProduct");
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Product");
                 });
 
             modelBuilder.Entity("BlabberCoCRM.Models.SalesEmployee", b =>
@@ -339,6 +316,34 @@ namespace BlabberCoCRM.Migrations
                     b.Property<DateTime>("StartDate");
 
                     b.HasDiscriminator().HasValue("ClientService");
+                });
+
+            modelBuilder.Entity("BlabberCoCRM.Models.ServiceProduct", b =>
+                {
+                    b.HasBaseType("BlabberCoCRM.Models.Product");
+
+                    b.Property<int>("DurationDays");
+
+                    b.Property<int>("ServiceProductId");
+
+                    b.Property<string>("Summary");
+
+                    b.HasDiscriminator().HasValue("ServiceProduct");
+                });
+
+            modelBuilder.Entity("BlabberCoCRM.Models.TangibleProduct", b =>
+                {
+                    b.HasBaseType("BlabberCoCRM.Models.Product");
+
+                    b.Property<DateTime>("EndOfLife");
+
+                    b.Property<string>("Manufacture");
+
+                    b.Property<string>("Model");
+
+                    b.Property<int>("TangibleProductId");
+
+                    b.HasDiscriminator().HasValue("TangibleProduct");
                 });
 
             modelBuilder.Entity("BlabberCoCRM.Models.Client", b =>

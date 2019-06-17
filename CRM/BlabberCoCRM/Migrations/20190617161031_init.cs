@@ -61,7 +61,15 @@ namespace BlabberCoCRM.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Price = table.Column<decimal>(nullable: false)
+                    Price = table.Column<decimal>(nullable: false),
+                    Discriminator = table.Column<string>(nullable: false),
+                    ServiceProductId = table.Column<int>(nullable: true),
+                    Summary = table.Column<string>(nullable: true),
+                    DurationDays = table.Column<int>(nullable: true),
+                    TangibleProductId = table.Column<int>(nullable: true),
+                    Manufacture = table.Column<string>(nullable: true),
+                    Model = table.Column<string>(nullable: true),
+                    EndOfLife = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -69,38 +77,11 @@ namespace BlabberCoCRM.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ServiceProduct",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DurationDays = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ServiceProduct", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "TangibleProduct",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false),
-                    Manufacture = table.Column<string>(nullable: true),
-                    Model = table.Column<string>(nullable: true),
-                    EndOfLife = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TangibleProduct", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Client",
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false),
-                    nNme = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
                     SetupDate = table.Column<DateTime>(nullable: false),
                     CostCenterCode = table.Column<string>(nullable: true),
                     AddressID = table.Column<int>(nullable: false)
@@ -442,12 +423,6 @@ namespace BlabberCoCRM.Migrations
 
             migrationBuilder.DropTable(
                 name: "PrimaryClientEmployee");
-
-            migrationBuilder.DropTable(
-                name: "ServiceProduct");
-
-            migrationBuilder.DropTable(
-                name: "TangibleProduct");
 
             migrationBuilder.DropTable(
                 name: "Conversation");

@@ -33,7 +33,7 @@ namespace BlabberCoCRM.Controllers
             }
 
             var tangibleProduct = await _context.TangibleProduct
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.ID == id);
             if (tangibleProduct == null)
             {
                 return NotFound();
@@ -53,7 +53,7 @@ namespace BlabberCoCRM.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Manufacture,Model,EndOfLife")] TangibleProduct tangibleProduct)
+        public async Task<IActionResult> Create([Bind("TangibleProductId,Manufacture,Model,EndOfLife,ID,Price")] TangibleProduct tangibleProduct)
         {
             if (ModelState.IsValid)
             {
@@ -85,9 +85,9 @@ namespace BlabberCoCRM.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Manufacture,Model,EndOfLife")] TangibleProduct tangibleProduct)
+        public async Task<IActionResult> Edit(int id, [Bind("TangibleProductId,Manufacture,Model,EndOfLife,ID,Price")] TangibleProduct tangibleProduct)
         {
-            if (id != tangibleProduct.Id)
+            if (id != tangibleProduct.ID)
             {
                 return NotFound();
             }
@@ -101,7 +101,7 @@ namespace BlabberCoCRM.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TangibleProductExists(tangibleProduct.Id))
+                    if (!TangibleProductExists(tangibleProduct.ID))
                     {
                         return NotFound();
                     }
@@ -124,7 +124,7 @@ namespace BlabberCoCRM.Controllers
             }
 
             var tangibleProduct = await _context.TangibleProduct
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.ID == id);
             if (tangibleProduct == null)
             {
                 return NotFound();
@@ -146,7 +146,7 @@ namespace BlabberCoCRM.Controllers
 
         private bool TangibleProductExists(int id)
         {
-            return _context.TangibleProduct.Any(e => e.Id == id);
+            return _context.TangibleProduct.Any(e => e.ID == id);
         }
     }
 }

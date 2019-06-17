@@ -7,10 +7,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BlabberCoCRM.Models
 {
-    public class TangibleProduct
+    public class TangibleProduct : Product
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Id { get; set; }
+        public int TangibleProductId { get; set; }
         public string Manufacture { get; set; }
         public string Model { get; set; }
         [DataType(DataType.Date)]

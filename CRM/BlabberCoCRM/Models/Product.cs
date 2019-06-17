@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BlabberCoCRM.Models
 {
-    public class Product
+    public abstract class Product
     {
         public int ID { get; set; }
         [DataType(DataType.Currency)]
