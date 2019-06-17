@@ -8,6 +8,7 @@ namespace BlabberCoCRM.Models
 {
     public class Product
     {
+        public int ID { get; set; }
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
 
