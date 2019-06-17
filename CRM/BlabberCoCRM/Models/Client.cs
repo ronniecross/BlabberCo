@@ -10,7 +10,7 @@ namespace BlabberCoCRM.Models
     public class Client
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string Name { get; set; }
         [DataType(DataType.Date)]
         public DateTime SetupDate { get; set; }
