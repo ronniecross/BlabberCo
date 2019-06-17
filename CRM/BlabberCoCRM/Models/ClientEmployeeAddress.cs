@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace BlabberCoCRM.Models
 {
@@ -9,6 +10,7 @@ namespace BlabberCoCRM.Models
     {
 
         public Address Address { get; set; }
+        [Key]
         public ClientEmployee ClientEmployee { get; set; }
     }
 }

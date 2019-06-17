@@ -7,7 +7,7 @@ namespace BlabberCoCRM.Models
 {
     public class Address
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string BuildingName { get; set; }
         public int PropertyNumber { get; set; }
         public string AddressLine1 { get; set; }
@@ -16,7 +16,7 @@ namespace BlabberCoCRM.Models
         public string PostCode { get; set; }
 
         public ICollection<ClientEmployeeAddress> ClientEmployeeAddresses { get; set; }
+        //public int ClientID { get; set; }
         public Client Client { get; set; }
-        public int ClientId { get; set; }
     }
 }

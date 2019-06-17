@@ -10,14 +10,15 @@ namespace BlabberCoCRM.Models
     public class Client
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string nNme { get; set; }
         [DataType(DataType.Date)]
         public DateTime SetupDate { get; set; }
         public string CostCenterCode { get; set; }
 
+        public int AddressID { get; set; }
+        [Required]
         public Address Address { get; set; }
-        public int AddressId { get; set; }
         public ICollection<ClientToEmployee> ClientToEmployees { get; set; }
         public PrimaryClientEmployee PrimaryClientEmployee { get; set; }
 
