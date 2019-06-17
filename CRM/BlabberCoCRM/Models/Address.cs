@@ -16,7 +16,7 @@ namespace BlabberCoCRM.Models
         public string AddressLine3 { get; set; }
         public string PostCode { get; set; }
 
-        public ICollection<ClientEmployee> ClientEmployees { get; set; }
+        public ICollection<ClientEmployeeAddress> ClientEmployeeAddresses { get; set; }
         public Client Client { get; set; }
     }
 }

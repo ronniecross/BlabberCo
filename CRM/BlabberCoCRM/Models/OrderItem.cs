@@ -13,5 +13,6 @@ namespace BlabberCoCRM.Models
 
         public Order Order { get; set; }
         public Product Product { get; set; }
+
     }
 }
