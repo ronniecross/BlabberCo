@@ -53,7 +53,7 @@ namespace BlabberCoCRM.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,DurationDays")] ServiceProduct serviceProduct)
+        public async Task<IActionResult> Create([Bind("Id,Summary,DurationDays")] ServiceProduct serviceProduct)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace BlabberCoCRM.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,DurationDays")] ServiceProduct serviceProduct)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Summary,DurationDays")] ServiceProduct serviceProduct)
         {
             if (id != serviceProduct.Id)
             {

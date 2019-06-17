@@ -8,6 +8,7 @@ namespace BlabberCoCRM.Models
     public class ServiceProduct
     {
         public int Id { get; set; }
+        public String Summary { get; set; }
         public int DurationDays { get; set; }
     }
 }
