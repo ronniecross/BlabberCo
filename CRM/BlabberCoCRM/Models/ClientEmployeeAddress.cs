@@ -8,9 +8,11 @@ namespace BlabberCoCRM.Models
 {
     public class ClientEmployeeAddress
     {
-
-        public Address Address { get; set; }
         [Key]
+        public int ClientEmployeeId { get; set; }
         public ClientEmployee ClientEmployee { get; set; }
+        public int AddressID { get; set; }
+        public Address Address { get; set; }
+        
     }
 }

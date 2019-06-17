@@ -20,6 +20,7 @@ namespace BlabberCoCRM.Models
         [Required]
         public Address Address { get; set; }
         public ICollection<ClientToEmployee> ClientToEmployees { get; set; }
+        [Required]
         public PrimaryClientEmployee PrimaryClientEmployee { get; set; }
 
     }
