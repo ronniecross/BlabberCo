@@ -39,5 +39,7 @@ namespace BlabberCoCRM.Models
         public DbSet<BlabberCoCRM.Models.TangibleProduct> TangibleProduct { get; set; }
 
         public DbSet<BlabberCoCRM.Models.Product> Product { get; set; }
+
+        public DbSet<BlabberCoCRM.Models.InternalEmployee> InternalEmployee { get; set; }
     }
 }
