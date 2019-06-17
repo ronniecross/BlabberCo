@@ -12,5 +12,9 @@ namespace BlabberCoCRM.Models
         [DataType(DataType.Date)]
         public DateTime OrderDate { get; set; }
         public int Discount { get; set; }
+        
+        public ICollection<OrderItem> OrderItems { get; set; }
+        public SalesEmployee SalesEmployee { get; set; }
+        public ClientEmployee ClientEmployee { get; set; }
     }
 }

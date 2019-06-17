@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BlabberCoCRM.Models
 {
-    public class ClientService
+    public class ClientService : OrderItem
     {
         public int Id { get; set; }
         [DataType(DataType.Date)]

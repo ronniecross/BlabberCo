@@ -19,5 +19,10 @@ namespace BlabberCoCRM.Models
         public Status status { get; set; }
         public DateTime OpenDateTime { get; set; }
         public DateTime CloseDateTime { get; set; }
+
+        public ICollection<Communication> Communications { get; set; }
+        public Product Product { get; set; }
+        public InternalEmployee InternalEmployee { get; set; }
+        public ClientEmployee ClientEmployee { get; set; }
     }
 }

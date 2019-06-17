@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace BlabberCoCRM.Models
 {
@@ -14,5 +15,8 @@ namespace BlabberCoCRM.Models
         public string AddressLine2 { get; set; }
         public string AddressLine3 { get; set; }
         public string PostCode { get; set; }
+
+        public ICollection<ClientEmployee> ClientEmployees { get; set; }
+        public Client Client { get; set; }
     }
 }

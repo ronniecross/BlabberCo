@@ -15,5 +15,10 @@ namespace BlabberCoCRM.Models
         [DataType(DataType.Date)]
         public DateTime SetupDate { get; set; }
         public string CostCenterCode { get; set; }
+
+        public Address Address { get; set; }
+        public ICollection<ClientEmployee> ClientEmployees { get; set; }
+        public ClientEmployee PrimaryClientEmployee { get; set; }
+
     }
 }

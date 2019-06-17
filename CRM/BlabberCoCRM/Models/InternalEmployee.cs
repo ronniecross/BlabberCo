@@ -8,5 +8,7 @@ namespace BlabberCoCRM.Models
     public class InternalEmployee
     {
         public int Id { get; set; }
+
+        public ICollection<Conversation> Conversations { get; set; }
     }
 }
