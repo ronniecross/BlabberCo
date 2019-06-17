@@ -17,8 +17,8 @@ namespace BlabberCoCRM.Models
         public string CostCenterCode { get; set; }
 
         public Address Address { get; set; }
-        public ICollection<ClientEmployee> ClientEmployees { get; set; }
-        public ClientEmployee PrimaryClientEmployee { get; set; }
+        public ICollection<ClientToEmployee> ClientToEmployees { get; set; }
+        public PrimaryClientEmployee PrimaryClientEmployee { get; set; }
 
     }
 }
