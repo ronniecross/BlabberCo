@@ -28,3 +28,8 @@ G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Bla
 G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\BlabberCoCRM.dll
 G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\BlabberCoCRM.pdb
 G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\BlabberCoCRM.csproj.CopyComplete
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\Addresses\Create.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\Addresses\Delete.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\Addresses\Details.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\Addresses\Edit.g.cshtml.cs
+G:\Dev\repos\BlabberCoCRM\BlabberCo\CRM\BlabberCoCRM\obj\Debug\netcoreapp2.2\Razor\Views\Addresses\Index.g.cshtml.cs
