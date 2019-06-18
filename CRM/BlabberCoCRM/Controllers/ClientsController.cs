@@ -21,8 +21,7 @@ namespace BlabberCoCRM.Controllers
         // GET: Clients
         public async Task<IActionResult> Index()
         {
-            var cRMContext = _context.Client.Include(c => c.Address);
-            return View(await cRMContext.ToListAsync());
+            return View(await _context.Client.ToListAsync());
         }
 
         // GET: Clients/Details/5
@@ -34,7 +33,6 @@ namespace BlabberCoCRM.Controllers
             }
 
             var client = await _context.Client
-                .Include(c => c.Address)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (client == null)
             {
@@ -47,7 +45,6 @@ namespace BlabberCoCRM.Controllers
         // GET: Clients/Create
         public IActionResult Create()
         {
-            ViewData["AddressID"] = new SelectList(_context.Address, "ID", "ID");
             return View();
         }
 
@@ -56,7 +53,7 @@ namespace BlabberCoCRM.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,nNme,SetupDate,CostCenterCode,AddressID")] Client client)
+        public async Task<IActionResult> Create([Bind("ID,Name,SetupDate,CostCenterCode")] Client client)
         {
             if (ModelState.IsValid)
             {
@@ -64,12 +61,11 @@ namespace BlabberCoCRM.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AddressID"] = new SelectList(_context.Address, "ID", "ID", client.AddressID);
             return View(client);
         }
 
         // GET: Clients/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
             {
@@ -81,7 +77,6 @@ namespace BlabberCoCRM.Controllers
             {
                 return NotFound();
             }
-            ViewData["AddressID"] = new SelectList(_context.Address, "ID", "ID", client.AddressID);
             return View(client);
         }
 
@@ -90,7 +85,7 @@ namespace BlabberCoCRM.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("ID,nNme,SetupDate,CostCenterCode,AddressID")] Client client)
+        public async Task<IActionResult> Edit(string id, [Bind("ID,Name,SetupDate,CostCenterCode")] Client client)
         {
             if (id != client.ID)
             {
@@ -117,7 +112,6 @@ namespace BlabberCoCRM.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AddressID"] = new SelectList(_context.Address, "ID", "ID", client.AddressID);
             return View(client);
         }
 
@@ -130,7 +124,6 @@ namespace BlabberCoCRM.Controllers
             }
 
             var client = await _context.Client
-                .Include(c => c.Address)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (client == null)
             {
@@ -143,7 +136,7 @@ namespace BlabberCoCRM.Controllers
         // POST: Clients/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(string id)
         {
             var client = await _context.Client.FindAsync(id);
             _context.Client.Remove(client);
