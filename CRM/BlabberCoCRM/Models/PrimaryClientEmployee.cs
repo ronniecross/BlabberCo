@@ -9,7 +9,7 @@ namespace BlabberCoCRM.Models
     public class PrimaryClientEmployee
     {
         [Key]
-        public int ClientID { get; set; }
+        public string ClientID { get; set; }
         public Client Client { get; set; }
         public int ClientEmployeeID { get; set; }
         public ClientEmployee ClientEmployee { get; set; }

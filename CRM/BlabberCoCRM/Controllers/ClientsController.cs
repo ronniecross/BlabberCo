@@ -26,7 +26,7 @@ namespace BlabberCoCRM.Controllers
         }
 
         // GET: Clients/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string id)
         {
             if (id == null)
             {
@@ -90,7 +90,7 @@ namespace BlabberCoCRM.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,nNme,SetupDate,CostCenterCode,AddressID")] Client client)
+        public async Task<IActionResult> Edit(string id, [Bind("ID,nNme,SetupDate,CostCenterCode,AddressID")] Client client)
         {
             if (id != client.ID)
             {
@@ -122,7 +122,7 @@ namespace BlabberCoCRM.Controllers
         }
 
         // GET: Clients/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
             {
@@ -151,7 +151,7 @@ namespace BlabberCoCRM.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ClientExists(int id)
+        private bool ClientExists(string id)
         {
             return _context.Client.Any(e => e.ID == id);
         }
