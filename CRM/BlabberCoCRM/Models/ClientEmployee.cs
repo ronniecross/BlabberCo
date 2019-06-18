@@ -10,7 +10,7 @@ namespace BlabberCoCRM.Models
         public int Id { get; set; }
 
         public ICollection<ClientEmployeeAddress> ClientEmployeeAddresses { get; set; }
-        public Address PrimaryAddress { get; set; }
+        public ClientEmployeePrimaryAddress ClientEmployeePrimaryAddress { get; set; }
         public ICollection<Order> Orders { get; set; }
         public ICollection<Conversation> Conversations { get; set; }
         public Client Client { get; set; }
