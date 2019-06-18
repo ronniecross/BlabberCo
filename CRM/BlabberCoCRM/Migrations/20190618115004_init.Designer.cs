@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlabberCoCRM.Migrations
 {
     [DbContext(typeof(CRMContext))]
-    [Migration("20190617161031_init")]
+    [Migration("20190618115004_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -65,7 +65,7 @@ namespace BlabberCoCRM.Migrations
 
             modelBuilder.Entity("BlabberCoCRM.Models.Client", b =>
                 {
-                    b.Property<int>("ID");
+                    b.Property<string>("ID");
 
                     b.Property<int>("AddressID");
 
@@ -77,8 +77,7 @@ namespace BlabberCoCRM.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("AddressID")
-                        .IsUnique();
+                    b.HasIndex("AddressID");
 
                     b.ToTable("Client");
                 });
@@ -89,7 +88,7 @@ namespace BlabberCoCRM.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("ClientID");
+                    b.Property<string>("ClientID");
 
                     b.Property<string>("EmailAddress");
 
@@ -99,34 +98,50 @@ namespace BlabberCoCRM.Migrations
 
                     b.Property<string>("PhoneNumber");
 
-                    b.Property<int?>("PrimaryAddressID");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ClientID");
-
-                    b.HasIndex("PrimaryAddressID");
 
                     b.ToTable("ClientEmployee");
                 });
 
             modelBuilder.Entity("BlabberCoCRM.Models.ClientEmployeeAddress", b =>
                 {
-                    b.Property<int>("ClientEmployeeId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AddressID");
 
-                    b.Property<int?>("ClientEmployeeId1");
+                    b.Property<int>("ClientEmployeeId");
 
-                    b.HasKey("ClientEmployeeId");
+                    b.HasKey("Id");
 
                     b.HasIndex("AddressID");
 
-                    b.HasIndex("ClientEmployeeId1");
+                    b.HasIndex("ClientEmployeeId");
 
                     b.ToTable("ClientEmployeeAddress");
+                });
+
+            modelBuilder.Entity("BlabberCoCRM.Models.ClientEmployeePrimaryAddress", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ClientEmployeeAddressId");
+
+                    b.Property<int>("ClientEmployeeId");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ClientEmployeeAddressId");
+
+                    b.HasIndex("ClientEmployeeId")
+                        .IsUnique();
+
+                    b.ToTable("ClientEmployeePrimaryAddress");
                 });
 
             modelBuilder.Entity("BlabberCoCRM.Models.ClientToEmployee", b =>
@@ -137,7 +152,7 @@ namespace BlabberCoCRM.Migrations
 
                     b.Property<int>("ClientEmployeeID");
 
-                    b.Property<int?>("ClientID1");
+                    b.Property<string>("ClientID1");
 
                     b.HasKey("ClientID");
 
@@ -271,7 +286,7 @@ namespace BlabberCoCRM.Migrations
 
             modelBuilder.Entity("BlabberCoCRM.Models.PrimaryClientEmployee", b =>
                 {
-                    b.Property<int>("ClientID");
+                    b.Property<string>("ClientID");
 
                     b.Property<int>("ClientEmployeeID");
 
@@ -349,8 +364,8 @@ namespace BlabberCoCRM.Migrations
             modelBuilder.Entity("BlabberCoCRM.Models.Client", b =>
                 {
                     b.HasOne("BlabberCoCRM.Models.Address", "Address")
-                        .WithOne("Client")
-                        .HasForeignKey("BlabberCoCRM.Models.Client", "AddressID")
+                        .WithMany()
+                        .HasForeignKey("AddressID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -359,10 +374,6 @@ namespace BlabberCoCRM.Migrations
                     b.HasOne("BlabberCoCRM.Models.Client", "Client")
                         .WithMany()
                         .HasForeignKey("ClientID");
-
-                    b.HasOne("BlabberCoCRM.Models.Address", "PrimaryAddress")
-                        .WithMany()
-                        .HasForeignKey("PrimaryAddressID");
                 });
 
             modelBuilder.Entity("BlabberCoCRM.Models.ClientEmployeeAddress", b =>
@@ -374,7 +385,20 @@ namespace BlabberCoCRM.Migrations
 
                     b.HasOne("BlabberCoCRM.Models.ClientEmployee", "ClientEmployee")
                         .WithMany("ClientEmployeeAddresses")
-                        .HasForeignKey("ClientEmployeeId1");
+                        .HasForeignKey("ClientEmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("BlabberCoCRM.Models.ClientEmployeePrimaryAddress", b =>
+                {
+                    b.HasOne("BlabberCoCRM.Models.ClientEmployeeAddress", "ClientEmployeeAddress")
+                        .WithMany()
+                        .HasForeignKey("ClientEmployeeAddressId");
+
+                    b.HasOne("BlabberCoCRM.Models.ClientEmployee", "ClientEmployee")
+                        .WithOne("ClientEmployeePrimaryAddress")
+                        .HasForeignKey("BlabberCoCRM.Models.ClientEmployeePrimaryAddress", "ClientEmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("BlabberCoCRM.Models.ClientToEmployee", b =>

@@ -10,7 +10,7 @@ namespace BlabberCoCRM.Models
         public int ID { get; set; }
         public int ClientEmployeeId { get; set; }
         public ClientEmployee ClientEmployee { get; set; }
-        public int ClientEmployeeAddressId { get; set; }
+        public int? ClientEmployeeAddressId { get; set; }
         public ClientEmployeeAddress ClientEmployeeAddress { get; set; }
 
     }

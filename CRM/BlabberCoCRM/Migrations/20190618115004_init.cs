@@ -80,7 +80,7 @@ namespace BlabberCoCRM.Migrations
                 name: "Client",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false),
+                    ID = table.Column<string>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     SetupDate = table.Column<DateTime>(nullable: false),
                     CostCenterCode = table.Column<string>(nullable: true),
@@ -107,8 +107,7 @@ namespace BlabberCoCRM.Migrations
                     LastName = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: true),
                     EmailAddress = table.Column<string>(nullable: true),
-                    PrimaryAddressID = table.Column<int>(nullable: true),
-                    ClientID = table.Column<int>(nullable: true)
+                    ClientID = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -119,26 +118,20 @@ namespace BlabberCoCRM.Migrations
                         principalTable: "Client",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_ClientEmployee_Address_PrimaryAddressID",
-                        column: x => x.PrimaryAddressID,
-                        principalTable: "Address",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
                 name: "ClientEmployeeAddress",
                 columns: table => new
                 {
-                    ClientEmployeeId = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ClientEmployeeId1 = table.Column<int>(nullable: true),
+                    ClientEmployeeId = table.Column<int>(nullable: false),
                     AddressID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ClientEmployeeAddress", x => x.ClientEmployeeId);
+                    table.PrimaryKey("PK_ClientEmployeeAddress", x => x.Id);
                     table.ForeignKey(
                         name: "FK_ClientEmployeeAddress_Address_AddressID",
                         column: x => x.AddressID,
@@ -146,11 +139,11 @@ namespace BlabberCoCRM.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ClientEmployeeAddress_ClientEmployee_ClientEmployeeId1",
-                        column: x => x.ClientEmployeeId1,
+                        name: "FK_ClientEmployeeAddress_ClientEmployee_ClientEmployeeId",
+                        column: x => x.ClientEmployeeId,
                         principalTable: "ClientEmployee",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -159,7 +152,7 @@ namespace BlabberCoCRM.Migrations
                 {
                     ClientID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ClientID1 = table.Column<int>(nullable: true),
+                    ClientID1 = table.Column<string>(nullable: true),
                     ClientEmployeeID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -249,7 +242,7 @@ namespace BlabberCoCRM.Migrations
                 name: "PrimaryClientEmployee",
                 columns: table => new
                 {
-                    ClientID = table.Column<int>(nullable: false),
+                    ClientID = table.Column<string>(nullable: false),
                     ClientEmployeeID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -266,6 +259,32 @@ namespace BlabberCoCRM.Migrations
                         column: x => x.ClientID,
                         principalTable: "Client",
                         principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ClientEmployeePrimaryAddress",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ClientEmployeeId = table.Column<int>(nullable: false),
+                    ClientEmployeeAddressId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ClientEmployeePrimaryAddress", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_ClientEmployeePrimaryAddress_ClientEmployeeAddress_ClientEmployeeAddressId",
+                        column: x => x.ClientEmployeeAddressId,
+                        principalTable: "ClientEmployeeAddress",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ClientEmployeePrimaryAddress_ClientEmployee_ClientEmployeeId",
+                        column: x => x.ClientEmployeeId,
+                        principalTable: "ClientEmployee",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -325,8 +344,7 @@ namespace BlabberCoCRM.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Client_AddressID",
                 table: "Client",
-                column: "AddressID",
-                unique: true);
+                column: "AddressID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ClientEmployee_ClientID",
@@ -334,19 +352,25 @@ namespace BlabberCoCRM.Migrations
                 column: "ClientID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ClientEmployee_PrimaryAddressID",
-                table: "ClientEmployee",
-                column: "PrimaryAddressID");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_ClientEmployeeAddress_AddressID",
                 table: "ClientEmployeeAddress",
                 column: "AddressID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ClientEmployeeAddress_ClientEmployeeId1",
+                name: "IX_ClientEmployeeAddress_ClientEmployeeId",
                 table: "ClientEmployeeAddress",
-                column: "ClientEmployeeId1");
+                column: "ClientEmployeeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ClientEmployeePrimaryAddress_ClientEmployeeAddressId",
+                table: "ClientEmployeePrimaryAddress",
+                column: "ClientEmployeeAddressId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ClientEmployeePrimaryAddress_ClientEmployeeId",
+                table: "ClientEmployeePrimaryAddress",
+                column: "ClientEmployeeId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_ClientToEmployee_ClientEmployeeID",
@@ -407,7 +431,7 @@ namespace BlabberCoCRM.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ClientEmployeeAddress");
+                name: "ClientEmployeePrimaryAddress");
 
             migrationBuilder.DropTable(
                 name: "ClientToEmployee");
@@ -423,6 +447,9 @@ namespace BlabberCoCRM.Migrations
 
             migrationBuilder.DropTable(
                 name: "PrimaryClientEmployee");
+
+            migrationBuilder.DropTable(
+                name: "ClientEmployeeAddress");
 
             migrationBuilder.DropTable(
                 name: "Conversation");
