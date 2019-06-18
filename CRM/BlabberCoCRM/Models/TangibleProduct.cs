@@ -9,11 +9,11 @@ namespace BlabberCoCRM.Models
 {
     public class TangibleProduct : Product
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int TangibleProductId { get; set; }
+
         public string Manufacture { get; set; }
         public string Model { get; set; }
         [DataType(DataType.Date)]
+        [Display(Name = "End of Sale")]
         public DateTime EndOfLife { get; set; }
     }
 }

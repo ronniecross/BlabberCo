@@ -14,9 +14,6 @@ This page contains a list of premium services offered by Blabber Co.
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ServiceProductId)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Summary)
             </th>
             <th>
@@ -32,9 +29,6 @@ This page contains a list of premium services offered by Blabber Co.
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ServiceProductId)
-                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Summary)
                 </td>

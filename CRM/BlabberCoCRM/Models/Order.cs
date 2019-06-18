@@ -10,6 +10,7 @@ namespace BlabberCoCRM.Models
     {
         public int Id { get; set; }
         [DataType(DataType.Date)]
+        [Display(Name ="Order Date")]
         public DateTime OrderDate { get; set; }
         public int Discount { get; set; }
         

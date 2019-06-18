@@ -14,9 +14,6 @@ This page contains a list of products sold by Blabber Co. including discontinued
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.TangibleProductId)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Manufacture)
             </th>
             <th>
@@ -35,9 +32,6 @@ This page contains a list of products sold by Blabber Co. including discontinued
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TangibleProductId)
-                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Manufacture)
                 </td>
