@@ -16,7 +16,7 @@ namespace BlabberCoCRM.Models
         public DateTime SetupDate { get; set; }
         public string CostCenterCode { get; set; }
         public ICollection<ClientToEmployee> ClientToEmployees { get; set; }
-        [Required]
+        public int? PrimaryClientEmployeeId { get; set; }
         public PrimaryClientEmployee PrimaryClientEmployee { get; set; }
 
     }
