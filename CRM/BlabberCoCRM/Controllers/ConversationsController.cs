@@ -21,7 +21,11 @@ namespace BlabberCoCRM.Controllers
         // GET: Conversations
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Conversation.ToListAsync());
+            return View(await _context.Conversation
+                .Include(c => c.InternalEmployee)
+                .Include(c => c.ClientEmployee)
+                .ThenInclude(c => c.Client)
+                .ToListAsync());
         }
 
         // GET: Conversations/Details/5
@@ -33,6 +37,9 @@ namespace BlabberCoCRM.Controllers
             }
 
             var conversation = await _context.Conversation
+                .Include(c => c.InternalEmployee)
+                .Include(c => c.ClientEmployee)
+                .ThenInclude(c => c.Client)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (conversation == null)
             {
@@ -72,7 +79,11 @@ namespace BlabberCoCRM.Controllers
                 return NotFound();
             }
 
-            var conversation = await _context.Conversation.FindAsync(id);
+            var conversation = await _context.Conversation
+                .Include(c => c.InternalEmployee)
+                .Include(c => c.ClientEmployee)
+                .ThenInclude(c => c.Client)
+                .FirstOrDefaultAsync(c => c.Id == id);
             if (conversation == null)
             {
                 return NotFound();
